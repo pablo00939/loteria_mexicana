@@ -50,16 +50,7 @@ def generar_tablero(filas, columnas):
 def loteria_default():
         filas = 4
         columnas = 4
-        tablero = []
-        for r in range(filas):
-                fila_actual = []
-                for c in range(columnas):
-                        color_index = (r + c ) %len(COLORES_TABLERO)
-                        color = COLORES_TABLERO[color_index]
-                        fila_actual.append({'color': color})
-                tablero.append(fila_actual)
-                
-                #Enviaremos filas, columnas y elk tablero a la plantilla
+        tablero = generar_tablero(filas, columnas) #llamamos a la funcion para generar el tablero
         return render_template('tablero.html', filas=filas, 
                                 columnas=columnas, 
                                 tablero=tablero)
@@ -70,14 +61,7 @@ def loteria_default():
 def loteria_filas_dinamicas(x):
         filas = x
         columnas = 4
-        tablero = []
-        for r in range(filas):
-                fila_actual = []
-                for c in range(columnas):
-                        color_index = (r +c) %len(COLORES_TABLERO)
-                        color = COLORES_TABLERO[color_index]
-                        fila_actual.append({'color':color})
-                tablero.append(fila_actual)
+        tablero = generar_tablero(filas, columnas) #llamamos a la funcion para generar el tablero
         return render_template('tablero.html', filas=filas,
                                 columnas=columnas, 
                                 tablero=tablero)
@@ -87,14 +71,7 @@ def loteria_filas_dinamicas(x):
 def loteria_filas_columnas_dinamicas(x, y):
         filas = x
         columnas = y
-        tablero = []
-        for r in range(filas):
-                 fila_actual = []
-                for c in range(columnas):
-                        color_index = (r + c) % len(COLORES_TABLERO)
-                        color = COLORES_TABLERO[color_index]
-                        fila_actual.append({'color': color})
-                tablero.append(fila_actual)
+        tablero = generar_tablero(filas, columnas)
         return render_template('tablero.html', filas=filas, columnas=columnas, tablero=tablero)
                 
 

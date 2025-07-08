@@ -17,7 +17,9 @@
     <div class="board-container">
         {% for fila in tablero %}
             {% for celda in fila %}
-                <div class="card-cell" style="background-color: {{celda.color}};"></div>
+                <div class="card-cell" style="background-color: {{celda.color}};">
+                <span class="card-name">{{ celda.nombre }} </span>
+                </div>
             {% endfor%}        
         {% endfor%}        
 
